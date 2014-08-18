@@ -6,14 +6,14 @@ Current build instructions
 Build Packages
 --------------
 ##### Ubuntu 14.04 packages
-> cd tesora-dbaas-trove-packaging
-> vagrant up debbuilder
-> vagrant ssh debbuilder
-> sudo su -
-> cd /vagrant/deb
-	optional, bump build # by editing build.sh and apt/changelog
-> ./build_enterprise.sh
-> exit
+	> cd tesora-dbaas-trove-packaging
+	> vagrant up debbuilder
+	> vagrant ssh debbuilder
+	> sudo su -
+	> cd /vagrant/deb
+		optional, bump build # by editing build.sh and apt/changelog
+	> ./build_enterprise.sh
+	> exit
 
 ##### CentOS 6.x packages
 > vagrant up rpmbuilder
