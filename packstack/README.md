@@ -72,19 +72,19 @@ This will download the standard Ubuntu datastore for Consumer branch
 
 Alternate instructions to add Enterprise data stores (via cache hackery):
 
-        source ~/keystonerc_admin
+	source ~/keystonerc_admin
 	mkdir /var/cache/tesora/images
 	cd /var/cache/tesora/images
 	wget https://s3.amazonaws.com/tesora-bhunter/trove-ubuntu-trusty-mysql-5.5.qcow2
-        /opt/tesora/dbaas/bin/add-datastore.sh mysql 5.5
+	/opt/tesora/dbaas/bin/add-datastore.sh mysql 5.5
 
 if you want to, repeat for others
 
 	wget https://s3.amazonaws.com/tesora-bhunter/trove-ubuntu-trusty-mongodb-2.4.qcow2
-        /opt/tesora/dbaas/bin/add-datastore.sh mongodb 2.4
+	/opt/tesora/dbaas/bin/add-datastore.sh mongodb 2.4
 
 	wget https://s3.amazonaws.com/tesora-bhunter/trove-ubuntu-trusty-cassandra-2.0.qcow2
-        /opt/tesora/dbaas/bin/add-datastore.sh cassandra 2.0
+	/opt/tesora/dbaas/bin/add-datastore.sh cassandra 2.0
 
 
 ##### Create MySQL database:
