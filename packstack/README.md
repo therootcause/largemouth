@@ -24,6 +24,11 @@ from the root of the openstack-utils git repo
 	cd /vagrant
 	./1-install-tesora-dbaas.sh
 
+	NOTE:  this scripting currently install the icehouse/consumer branch
+        To get enterprise:
+
+
+        
 run setup.sh (2nd part of installation)
 
 	./2-run-setup.sh
@@ -49,11 +54,13 @@ see  setup-answers-packstack.txt for a complete log
 ##### Add MySQL datastore
 
 run:
+
 	3-add-datastore.sh 
 
 ##### Create MySQL database:
 
 run:
+
 	4-create-database.sh
 
 if everything goes well, the instance will go from "BUILD" to "ACTIVE", and the new database can be used.
