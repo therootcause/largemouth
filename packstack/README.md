@@ -24,8 +24,8 @@ from the root of the openstack-utils git repo
 	cd /vagrant
 	./1-install-tesora-dbaas.sh
 
-	NOTE:  this scripting currently install the icehouse/consumer branch
-        To get enterprise:
+NOTE:  this scripting currently install the icehouse/consumer branch
+To get enterprise:
 
 
         
@@ -33,7 +33,7 @@ run setup.sh (2nd part of installation)
 
 	./2-run-setup.sh
  
-These are the questions that have non-default answers:
+Press enter to accept defaults for all questions except the following:
 
 	...
 	MySQL host/port?  [192.168.2.129:3306] 127.0.0.1:3306
@@ -57,10 +57,13 @@ run:
 
 	3-add-datastore.sh 
 
+This will download the standard Ubuntu datastore for Consumer branch
+
+
 ##### Create MySQL database:
 
 run:
 
 	4-create-database.sh
 
-if everything goes well, the instance will go from "BUILD" to "ACTIVE", and the new database can be used.
+If everything goes well, the instance will go from "BUILD" to "ACTIVE", and the new database can be used.
