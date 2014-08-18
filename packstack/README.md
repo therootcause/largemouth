@@ -5,29 +5,27 @@ This vagrantfile will install and configure Icehouse release on a CentOS 6.5
 host using the packstack installer.
 This environment is then used to install/test tesora-dbaas.
 
-- add base CentOS 6.5 box:
-  cd vagrant/boxes
-  vagrant box add centos-6.5-amd64.json --provider vmware_desktop
+##### Bring up packstack vm
+from the root of the openstack-utils git repo
+	pushd vagrant/boxes
+	vagrant box add centos-6.5-amd64.json --provider vmware_desktop
+	popd
 
-- vagrant up
+	pushd vagrant/packtack
+  	vagrant up
 
-  cd vagrant/packstack
-  vagrant up
+(note, vagrant up will often return failure, yet actually succeed.)
 
-  (note, vagrant up will often return failure, yet actually succeed.)
+##### Install Tesora-DBaaS
 
-- install tesora
+	vagrant ssh
+	sudo su -
+	cd /vagrant
+	./1-install-tesora-dbaas.sh
 
-  run:
-  vagrant ssh
-  sudo su -
-  cd /vagrant
-  ./1-install-tesora-dbaas.sh
+run setup.sh (2nd part of installation)
 
-- run setup.sh (2nd part of installation)
-
-  run:
-  ./2-run-setup.sh
+	./2-run-setup.sh
  
 These are the questions that have non-default answers:
 ...
@@ -46,15 +44,14 @@ Trove Region?  [Default] RegionOne
 see  setup-answers-packstack.txt for a complete log
 
 
-- Add MySQL datastore
+##### Add MySQL datastore
 
 run:
-3-add-datastore.sh 
+	3-add-datastore.sh 
 
-- Create MySQL database:
+##### Create MySQL database:
 
 run:
-4-create-database.sh
-
+	4-create-database.sh
 
 if everything goes well, the instance will go from "BUILD" to "ACTIVE", and the new database can be used.
