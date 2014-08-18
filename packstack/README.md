@@ -7,6 +7,7 @@ This environment is then used to install/test tesora-dbaas.
 
 ##### Bring up packstack vm
 from the root of the openstack-utils git repo
+
 	pushd vagrant/boxes
 	vagrant box add centos-6.5-amd64.json --provider vmware_desktop
 	popd
