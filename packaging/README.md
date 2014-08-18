@@ -16,14 +16,14 @@ Build Packages
 	exit
 
 ##### CentOS 6.x packages
-> vagrant up rpmbuilder
-> vagrant ssh rpmbuilder
-> sudo su -
-> cd /vagrant/rpm
-	optional, bump build # by editing build.sh and tesora-dbaas.spec
-> ./build_enterprise.sh
-> cp /root/rpm_staging/enterprise/output/dbaas* /vagrant
-> exit
+	vagrant up rpmbuilder
+	vagrant ssh rpmbuilder
+	sudo su -
+	cd /vagrant/rpm
+		#optional, bump build number by editing build.sh and tesora-dbaas.spec
+	./build_enterprise.sh
+	cp /root/rpm_staging/enterprise/output/dbaas* /vagrant
+	exit
 
 Publish Packages
 ----------------
@@ -33,14 +33,13 @@ The deb in apt/tmp/enterprise/tesora-trove/packages
 
 upload these to the sftp server, kick the import-builds.bash script
 
-
 Building Disk Images
 --------------------
 
-> cd packagingdir
-> vagrant ssh debbuilder
-> sudo su -
-> cd /vagrant/diskimage
-> ./build.sh
+	cd packagingdir
+	vagrant ssh debbuilder
+	sudo su -
+	cd /vagrant/diskimage
+	./build.sh
 
 This builds only Juno right now
