@@ -6,6 +6,8 @@ host using the packstack installer.
 
 This environment is then used to install/test tesora-dbaas.
 
+Please note that this tooling is not entirely up-to-date for Community vs. Enterprise.   Some extra steps exist for installing enterprise.
+
 ##### Bring up packstack vm
 from the root of the openstack-utils git repo
 
@@ -15,6 +17,7 @@ from the root of the openstack-utils git repo
 
 	pushd vagrant/packtack
   	vagrant up
+	popd
 
 (note, vagrant up will often return failure, yet actually succeed.)
 
