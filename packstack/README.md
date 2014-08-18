@@ -3,6 +3,7 @@ Packstack
 
 This vagrantfile will install and configure Icehouse release on a CentOS 6.5
 host using the packstack installer.
+
 This environment is then used to install/test tesora-dbaas.
 
 ##### Bring up packstack vm
