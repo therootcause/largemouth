@@ -15,7 +15,7 @@ from the root of the openstack-utils git repo
 	vagrant box add centos-6.5-amd64.json --provider vmware_desktop
 	popd
 
-	pushd vagrant/packtack
+	pushd vagrant/packstack
   	vagrant up
 	popd
 
@@ -23,13 +23,20 @@ from the root of the openstack-utils git repo
 
 ##### Install Tesora-DBaaS
 
+To get consumer edition
+
 	vagrant ssh
 	sudo su -
 	cd /vagrant
 	./1-install-tesora-dbaas.sh
 
-NOTE:  this scripting currently install the icehouse/consumer branch
-To get enterprise:
+To get enterprise edition
+
+	vagrant ssh
+	sudo su -
+	cd /vagrant
+	./1-install-tesora-dbaas-enterprise.sh
+
 
 
         
@@ -63,6 +70,22 @@ run:
 
 This will download the standard Ubuntu datastore for Consumer branch
 
+Alternate instructions to add Enterprise data stores (via cache hackery):
+
+        source ~/keystonerc_admin
+	mkdir /var/cache/tesora/images
+	cd /var/cache/tesora/images
+	wget https://s3.amazonaws.com/tesora-bhunter/trove-ubuntu-trusty-mysql-5.5.qcow2
+        /opt/tesora/dbaas/bin/add-datastore.sh mysql 5.5
+
+if you want to, repeat for others
+
+	wget https://s3.amazonaws.com/tesora-bhunter/trove-ubuntu-trusty-mongodb-2.4.qcow2
+        /opt/tesora/dbaas/bin/add-datastore.sh mongodb 2.4
+
+	wget https://s3.amazonaws.com/tesora-bhunter/trove-ubuntu-trusty-cassandra-2.0.qcow2
+        /opt/tesora/dbaas/bin/add-datastore.sh cassandra 2.0
+
 
 ##### Create MySQL database:
 
@@ -70,4 +93,5 @@ run:
 
 	4-create-database.sh
 
-If everything goes well, the instance will go from "BUILD" to "ACTIVE", and the new database can be used.
+If everything goes well, a mysql instance will be created, and the output will transition from "BUILD" to "ACTIVE". The database should be usable.
+
